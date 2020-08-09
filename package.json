@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/sabadia/stack_game#readme",
   "devDependencies": {
-    "@types/jquery": "^3.5.0",
+    "@types/jquery": "^3.5.1",
     "@types/node": "^14.0.26",
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-bundle": "^1.12.1-migrate"
   }
 }

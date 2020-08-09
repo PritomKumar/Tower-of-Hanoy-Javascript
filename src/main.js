@@ -1,14 +1,38 @@
-$(document).ready(function () {
-    $("h1").css({
-        color: "black",
-        border: "2px solid green"
-    });
-});
 function draw() {
     var canvas = new CanvasElement();
     var xDifference = 126;
     var yDifference = 30;
     initializeBoard(canvas, xDifference, yDifference);
+    makeAllItemsDraggable();
+}
+function makeAllItemsDraggable() {
+    var _loop_1 = function (i) {
+        var id = "#y" + i;
+        $(function () {
+            $(id).draggable();
+        });
+    };
+    for (var i = 1; i <= 3; i++) {
+        _loop_1(i);
+    }
+    var _loop_2 = function (i) {
+        var id = "#r" + i;
+        $(function () {
+            $(id).draggable();
+        });
+    };
+    for (var i = 1; i <= 3; i++) {
+        _loop_2(i);
+    }
+    var _loop_3 = function (i) {
+        var id = "#b" + i;
+        $(function () {
+            $(id).draggable();
+        });
+    };
+    for (var i = 1; i <= 3; i++) {
+        _loop_3(i);
+    }
 }
 var y1, y2, y3, r1, r2, r3, b1, b2, b3;
 function initializeBoard(canvas, xDifference, yDifference) {
@@ -19,7 +43,7 @@ function initializeBoard(canvas, xDifference, yDifference) {
     var blueBody = "#DAE8FC";
     var blueBorder = "#829FCA";
     y1 = canvas.createOval(400, 515, yellowBody, yellowBorder, "y1");
-    y1 = canvas.createOval(400, 515 - yDifference, yellowBody, yellowBorder, "y2");
+    y2 = canvas.createOval(400, 515 - yDifference, yellowBody, yellowBorder, "y2");
     r1 = canvas.createOval(400 + xDifference, 515, redBody, redBorder, "r1");
     r2 = canvas.createOval(400 + xDifference, 515 - yDifference, redBody, redBorder, "r2");
     r3 = canvas.createOval(400 + xDifference, 515 - 2 * yDifference, redBody, redBorder, "r3");

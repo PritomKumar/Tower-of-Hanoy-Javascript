@@ -1,17 +1,35 @@
 
-$(document).ready(function () {
-  $("h1").css({
-    color: "black",
-    border: "2px solid green",
-  });
-});
-
 function draw() {
   let canvas: CanvasElement = new CanvasElement();
   let xDifference = 126;
   let yDifference = 30;
   initializeBoard(canvas, xDifference, yDifference);
+  makeAllItemsDraggable();
+  
 }
+
+function makeAllItemsDraggable(){
+  
+  for(let i=1 ; i<=3 ; i++){
+    let id = "#y" + i;
+    $( function() {
+      $(id).draggable();
+    } );
+  }
+  for(let i=1 ; i<=3 ; i++){
+    let id = "#r" + i;
+    $( function() {
+      $(id).draggable();
+    } );
+  }
+  for(let i=1 ; i<=3 ; i++){
+    let id = "#b" + i;
+    $( function() {
+      $(id).draggable();
+    } );
+  }
+  
+} 
 let y1 , y2, y3 , r1, r2, r3, b1, b2, b3;
 function initializeBoard(canvas: CanvasElement, xDifference: number, yDifference: number) {
   let yellowBody: string = "#FFF2CC";
@@ -22,7 +40,7 @@ function initializeBoard(canvas: CanvasElement, xDifference: number, yDifference
   let blueBorder: string = "#829FCA";
 
   y1 = canvas.createOval(400, 515, yellowBody, yellowBorder , "y1");
-  y1 = canvas.createOval(400, 515 - yDifference, yellowBody, yellowBorder, "y2");
+  y2 = canvas.createOval(400, 515 - yDifference, yellowBody, yellowBorder, "y2");
   r1 = canvas.createOval(400 + xDifference, 515, redBody, redBorder, "r1");
   r2 = canvas.createOval(400 + xDifference, 515 - yDifference, redBody, redBorder,"r2");
   r3 = canvas.createOval(400 + xDifference, 515 - 2 * yDifference, redBody, redBorder,"r3");
