@@ -9,7 +9,7 @@ function makeAllItemsDraggable() {
     var _loop_1 = function (i) {
         var id = "#y" + i;
         $(function () {
-            $(id).draggable();
+            $(id).draggable({ snap: true });
         });
     };
     for (var i = 1; i <= 3; i++) {
@@ -18,7 +18,7 @@ function makeAllItemsDraggable() {
     var _loop_2 = function (i) {
         var id = "#r" + i;
         $(function () {
-            $(id).draggable();
+            $(id).draggable({ snap: true });
         });
     };
     for (var i = 1; i <= 3; i++) {
@@ -27,7 +27,7 @@ function makeAllItemsDraggable() {
     var _loop_3 = function (i) {
         var id = "#b" + i;
         $(function () {
-            $(id).draggable();
+            $(id).draggable({ snap: true });
         });
     };
     for (var i = 1; i <= 3; i++) {

@@ -13,19 +13,19 @@ function makeAllItemsDraggable(){
   for(let i=1 ; i<=3 ; i++){
     let id = "#y" + i;
     $( function() {
-      $(id).draggable();
+      $(id).draggable({ snap: true });
     } );
   }
   for(let i=1 ; i<=3 ; i++){
     let id = "#r" + i;
     $( function() {
-      $(id).draggable();
+      $(id).draggable({ snap: true });
     } );
   }
   for(let i=1 ; i<=3 ; i++){
     let id = "#b" + i;
     $( function() {
-      $(id).draggable();
+      $(id).draggable({ snap: true });
     } );
   }
   
