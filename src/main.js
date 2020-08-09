@@ -4,34 +4,26 @@ function draw() {
     var yDifference = 30;
     initializeBoard(canvas, xDifference, yDifference);
     makeAllItemsDraggable();
+    droppableWithDragebles();
+}
+function droppableWithDragebles() {
+    $("#yD, #rD, #bD").droppable({
+        drop: function (vent, ui) {
+            $(this)
+                .addClass("ui-state-highlight")
+                .find("p");
+        }
+    });
 }
 function makeAllItemsDraggable() {
     var _loop_1 = function (i) {
-        var id = "#y" + i;
+        var id = "#y" + i + ", #b" + i + ", #r" + i;
         $(function () {
-            $(id).draggable({ snap: true });
+            $(id).draggable({ snap: true, revert: "invalid" });
         });
     };
     for (var i = 1; i <= 3; i++) {
         _loop_1(i);
-    }
-    var _loop_2 = function (i) {
-        var id = "#r" + i;
-        $(function () {
-            $(id).draggable({ snap: true });
-        });
-    };
-    for (var i = 1; i <= 3; i++) {
-        _loop_2(i);
-    }
-    var _loop_3 = function (i) {
-        var id = "#b" + i;
-        $(function () {
-            $(id).draggable({ snap: true });
-        });
-    };
-    for (var i = 1; i <= 3; i++) {
-        _loop_3(i);
     }
 }
 var y1, y2, y3, r1, r2, r3, b1, b2, b3;

@@ -5,27 +5,28 @@ function draw() {
   let yDifference = 30;
   initializeBoard(canvas, xDifference, yDifference);
   makeAllItemsDraggable();
+  droppableWithDragebles();
   
 }
+
+ function droppableWithDragebles() {
+
+  $( "#yD, #rD, #bD" ).droppable({
+    drop: function( vent: any, ui: any ) {
+      $( this )
+        .addClass( "ui-state-highlight" )
+        .find( "p" );
+    }
+  });
+
+} 
 
 function makeAllItemsDraggable(){
   
   for(let i=1 ; i<=3 ; i++){
-    let id = "#y" + i;
+    let id = "#y" + i +", #b" + i + ", #r" + i;
     $( function() {
-      $(id).draggable({ snap: true });
-    } );
-  }
-  for(let i=1 ; i<=3 ; i++){
-    let id = "#r" + i;
-    $( function() {
-      $(id).draggable({ snap: true });
-    } );
-  }
-  for(let i=1 ; i<=3 ; i++){
-    let id = "#b" + i;
-    $( function() {
-      $(id).draggable({ snap: true });
+      $(id).draggable({ snap: true , revert: "invalid"});
     } );
   }
   
