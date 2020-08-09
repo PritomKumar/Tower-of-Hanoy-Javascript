@@ -6,14 +6,17 @@ function draw() {
     makeAllItemsDraggable();
     droppableWithDragebles();
 }
+function addUIElement() {
+}
 function droppableWithDragebles() {
-    $("#yD, #rD, #bD").droppable({
-        drop: function (vent, ui) {
-            $(this)
-                .addClass("ui-state-highlight")
-                .find("p");
-        }
-    });
+    event: Event =
+        $("#yD, #rD, #bD").droppable({
+            drop: function (vent, ui) {
+                $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p");
+            }
+        });
 }
 function makeAllItemsDraggable() {
     var _loop_1 = function (i) {

@@ -1,4 +1,5 @@
 
+
 function draw() {
   let canvas: CanvasElement = new CanvasElement();
   let xDifference = 126;
@@ -9,8 +10,15 @@ function draw() {
   
 }
 
+function addUIElement(){
+
+
+  
+}
+
  function droppableWithDragebles() {
 
+  event : Event = 
   $( "#yD, #rD, #bD" ).droppable({
     drop: function( vent: any, ui: any ) {
       $( this )
@@ -24,7 +32,7 @@ function draw() {
 function makeAllItemsDraggable(){
   
   for(let i=1 ; i<=3 ; i++){
-    let id = "#y" + i +", #b" + i + ", #r" + i;
+    let id: string = "#y" + i +", #b" + i + ", #r" + i;
     $( function() {
       $(id).draggable({ snap: true , revert: "invalid"});
     } );
