@@ -42,6 +42,9 @@ function initializeBoard(canvas, xDifference, yDifference) {
     var redBorder = "#B85450";
     var blueBody = "#DAE8FC";
     var blueBorder = "#829FCA";
+    canvas.createDrppableArea(400, 90, yellowBody, "yD");
+    canvas.createDrppableArea(400 + xDifference, 90, redBody, "rD");
+    canvas.createDrppableArea(400 + 2 * xDifference, 90, blueBody, "bD");
     y1 = canvas.createOval(400, 515, yellowBody, yellowBorder, "y1");
     y2 = canvas.createOval(400, 515 - yDifference, yellowBody, yellowBorder, "y2");
     r1 = canvas.createOval(400 + xDifference, 515, redBody, redBorder, "r1");
@@ -61,6 +64,7 @@ var CanvasElement = /** @class */ (function () {
         this.ovalRadiusY = 50;
         this.rectangleWidth = 60;
         this.rectangleHeight = 60;
+        this.droppableHeight = 460;
         this.bufferArea = 5;
     }
     CanvasElement.prototype.createFixedSquare = function (positionX, positionY, fillColor, strokeColor) {
@@ -110,6 +114,28 @@ var CanvasElement = /** @class */ (function () {
                 context.fillStyle = fillColor;
                 context.fill();
                 context.strokeStyle = strokeColor;
+                context.stroke();
+                document.body.appendChild(canvas);
+            }
+        }
+    };
+    CanvasElement.prototype.createDrppableArea = function (positionX, positionY, strokeColor, id) {
+        if (strokeColor === void 0) { strokeColor = "black"; }
+        var canvas = document.createElement('canvas');
+        canvas.id = id;
+        canvas.width = this.ovalRadiusY * 2 + 5;
+        canvas.height = this.droppableHeight;
+        canvas.style.left = positionX + "px";
+        canvas.style.top = positionY + "px";
+        canvas.style.position = "absolute";
+        if (canvas.getContext) {
+            var context = canvas.getContext("2d");
+            var width = this.ovalRadiusY * 2 + 5;
+            var height = this.droppableHeight;
+            if (context != null) {
+                context.beginPath();
+                context.rect(0, 0, width, height);
+                context.strokeStyle = "#000";
                 context.stroke();
                 document.body.appendChild(canvas);
             }
